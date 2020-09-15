@@ -56,13 +56,18 @@ function Dog(x) {
   //This code below changes the value of dog.color but
   //  still brings err about "'color' is undefined"
   // this.color = x.color
-  this.color = "black"
+  // this.color = "black"
+  this.color = x === undefined ? "red" : x.color
+  // if (x === undefined) {
+  //   this.color = x.color
+  // }
   // this.prototype = function (x) {
   //   x.color = this.color
   // }
   // this.color = color
   // this.hungry = hungry
   this.status = "normal"
+  this.hungry = true
   console.log()
   // function pet() {
   //   return this.status == "happy"
@@ -95,9 +100,14 @@ function Dog(x) {
 //     x.hungry = true
 //   }
 // }
+Human.prototype.feed = function (x) {
+  if (x.hungry === undefined) x.hungry = false
+}
+
 Human.prototype.pet = function (x) {
   x.status = "happy"
 }
+
 function Human() {
   // this.pet = function () {
   //   return (Dog.status = "happy")
