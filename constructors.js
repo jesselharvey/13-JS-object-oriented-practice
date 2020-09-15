@@ -58,6 +58,24 @@ function Dog(x) {
   // this.color = x.color
   // this.color = "black"
   this.color = x === undefined ? "red" : x.color
+  // this.hungry = x === undefined ? true : x.hungry || true
+
+  if (x === undefined || x.hungry === undefined) {
+    this.hungry = true
+  } else {
+    this.hungry = x.hungry
+  }
+
+  // const hasHungry = x && "hungry" in x
+  // this.hungry = hasHungry ? x.hungry : true
+
+  // if (x === undefined) {
+  //   this.hungry = true
+  // }
+  // if (x == moonshine) {
+  //   this.hungry = true
+  // }
+
   // if (x === undefined) {
   //   this.color = x.color
   // }
@@ -67,7 +85,7 @@ function Dog(x) {
   // this.color = color
   // this.hungry = hungry
   this.status = "normal"
-  this.hungry = true
+  // this.hungry = true
   console.log()
   // function pet() {
   //   return this.status == "happy"
@@ -101,14 +119,15 @@ function Dog(x) {
 //   }
 // }
 Human.prototype.feed = function (x) {
-  if (x.hungry === undefined) x.hungry = false
+  if (x.color === "blue-red") x.hungry = false
 }
 
 Human.prototype.pet = function (x) {
   x.status = "happy"
 }
 
-function Human() {
+function Human(x) {
+  this.cool = x === undefined ? false : x.cool
   // this.pet = function () {
   //   return (Dog.status = "happy")
   // }
